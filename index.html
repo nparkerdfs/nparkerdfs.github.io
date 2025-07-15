@@ -20,13 +20,13 @@
 </div>
 
 <script>
+  const baseurl="https://docs.dfsmail.com/"
   const options = [
-    { label: "DFS HOME", url: "https://example.com/home" },
-    { label: "SOP", url: "https://example.com/sop" },
-    { label: "HELP", url: "https://example.com/help" },
-    { label: "POLICIES", url: "https://example.com/policies" },
-    { label: "RELEASE NOTES", url: "https://example.com/release-notes" },
-    { label: "PORTAL", url: "https://example.com/portal" }
+    { label: "Aspire Insurance Services", url: "aspire-insurance-services" },
+    { label: "Blue Ridge ESOP Associates", url: "blue-ridge" },
+    { label: "HELP", url: "help" },
+    { label: "POLICIES", url: "policy" },
+    { label: "RELEASE NOTES", url: "developer" },
   ];
 
   const input = document.getElementById("searchInput");
@@ -41,7 +41,7 @@
     options.filter(opt => opt.label.toLowerCase().includes(query)).forEach(opt => {
       const li = document.createElement("li");
       li.textContent = opt.label;
-      li.onclick = () => window.open(opt.url, "_blank");
+      li.onclick = () => window.open(baseurl + opt.url, "_blank");
       results.appendChild(li);
     });
   });
