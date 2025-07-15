@@ -1,17 +1,57 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DFS Searchable Links</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; background: #f4f4f4; }
+    .dropdown-wrapper { max-width: 500px; margin: auto; }
+    #searchInput { width: 100%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    #results { list-style: none; padding: 0; margin-top: 5px; border: 1px solid #ccc; background: white; max-height: 200px; overflow-y: auto; }
+    #results li { padding: 10px; cursor: pointer; }
+    #results li:hover { background: #eee; }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages. test</p>
+
+<div class="dropdown-wrapper">
+  <input type="text" id="searchInput" placeholder="Search DFS links..." />
+  <ul id="results"></ul>
+</div>
+
+<script>
+  const options = [
+    { label: "DFS HOME", url: "https://example.com/home" },
+    { label: "SOP", url: "https://example.com/sop" },
+    { label: "HELP", url: "https://example.com/help" },
+    { label: "POLICIES", url: "https://example.com/policies" },
+    { label: "RELEASE NOTES", url: "https://example.com/release-notes" },
+    { label: "PORTAL", url: "https://example.com/portal" }
+  ];
+
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("results");
+
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (!query) return;
+
+    options.filter(opt => opt.label.toLowerCase().includes(query)).forEach(opt => {
+      const li = document.createElement("li");
+      li.textContent = opt.label;
+      li.onclick = () => window.open(opt.url, "_blank");
+      results.appendChild(li);
+    });
+  });
+
+  document.addEventListener("click", e => {
+    if (!document.querySelector(".dropdown-wrapper").contains(e.target)) {
+      results.innerHTML = "";
+    }
+  });
+</script>
+
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
->>>>>>> ee77140d762e410b0a9989eaef7c44d6673b8361
